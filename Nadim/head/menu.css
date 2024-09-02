@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  position: sticky;  /* Make the menu-bar sticky */
+  top: 0;            /* Stick to the top */
+  z-index: 1000;     /* Ensure it stays above other content */
+  
+}
+
+.menu-bar {
+  border-radius: 25px;
+  height: fit-content;
+  display: flex;
+  background-color: rgba(0, 0, 0, .4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);  
+  align-items: center;
+  border-radius: 10px;
+  margin: 1px 0;
+
+}
+
+.menu-container {
+  position: relative;
+  margin: 7px 10px;
+}
+
+.menu {
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 7px 7px;
+  margin: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 25px;
+  transition: color 0.2s;
+}
+
+.menu::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: .2s;
+  border-radius: 10px;
+}
+
+.menu:hover::before {
+  background: linear-gradient(to bottom, #e8edec, #ff9ce5);
+  box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.2);
+}
+
+.menu:hover {
+  color: rgb(255, 255, 255);
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 150px;
+}
+
+.menu-container:hover .submenu {
+  display: block;
+}
+
+.submenu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 8px 12px;
+  transition: background-color 0.2s;
+}
+
+.submenu a:hover {
+  background-color: #575757;
+}
